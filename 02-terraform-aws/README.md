@@ -1,37 +1,37 @@
-# Модуль 2: Terraform AWS IaC
+# מודול 2: Terraform AWS IaC
 
-## Цели обучения
+## מטרות למידה
 
-- Понимание концепций Infrastructure as Code (IaC)
-- Установка и настройка Terraform
-- Работа с AWS провайдером
-- Создание и управление инфраструктурой
-- Лучшие практики Terraform
+- הבנת מושגי Infrastructure as Code (IaC)
+- התקנה והגדרת Terraform
+- עבודה עם ספק AWS
+- יצירה וניהול תשתית
+- פרקטיקות מומלצות של Terraform
 
-## Теоретическая часть (1 час)
+## חלק תיאורטי (שעה)
 
-### 2.1 Что такое Infrastructure as Code (IaC)?
+### 2.1 מה זה Infrastructure as Code (IaC)?
 
-**Infrastructure as Code** - подход к управлению инфраструктурой через код, а не через ручные операции.
+**Infrastructure as Code** - גישה לניהול תשתית דרך קוד, ולא דרך פעולות ידניות.
 
-Преимущества:
-- Версионирование инфраструктуры
-- Воспроизводимость
-- Автоматизация
-- Документирование
+יתרונות:
+- גרסה של תשתית
+- יכולת שכפול
+- אוטומציה
+- תיעוד
 
-### 2.2 Terraform - обзор
+### 2.2 Terraform - סקירה
 
-Terraform - это инструмент для управления инфраструктурой от HashiCorp:
-- Поддерживает множество провайдеров (AWS, Azure, GCP, etc.)
-- Использует декларативный синтаксис
-- Сохраняет состояние инфраструктуры
-- Поддерживает модули и переиспользование кода
+Terraform הוא כלי לניהול תשתית מ-HashiCorp:
+- תומך במספר ספקים (AWS, Azure, GCP, וכו')
+- משתמש בתחביר הצהרתי
+- שומר מצב תשתית
+- תומך במודולים ושימוש חוזר בקוד
 
-### 2.3 Основные концепции
+### 2.3 מושגים בסיסיים
 
 #### Provider
-Провайдер - это плагин, который взаимодействует с облачным провайдером:
+ספק הוא תוסף שמתקשר עם ספק ענן:
 ```hcl
 provider "aws" {
   region = "us-west-2"
@@ -39,7 +39,7 @@ provider "aws" {
 ```
 
 #### Resource
-Ресурс - это инфраструктурный объект:
+משאב הוא אובייקט תשתית:
 ```hcl
 resource "aws_instance" "web" {
   ami           = "ami-12345678"
@@ -48,7 +48,7 @@ resource "aws_instance" "web" {
 ```
 
 #### Data Source
-Источник данных - для получения информации о существующих ресурсах:
+מקור נתונים - לקבלת מידע על משאבים קיימים:
 ```hcl
 data "aws_ami" "ubuntu" {
   most_recent = true
@@ -57,7 +57,7 @@ data "aws_ami" "ubuntu" {
 ```
 
 #### Variable
-Переменные для параметризации:
+משתנים לפרמטריזציה:
 ```hcl
 variable "instance_type" {
   description = "EC2 instance type"
@@ -67,31 +67,31 @@ variable "instance_type" {
 ```
 
 #### Output
-Выходные значения:
+ערכי פלט:
 ```hcl
 output "public_ip" {
   value = aws_instance.web.public_ip
 }
 ```
 
-### 2.4 Жизненный цикл Terraform
+### 2.4 מחזור חיים של Terraform
 
-1. **terraform init** - инициализация
-2. **terraform plan** - планирование изменений
-3. **terraform apply** - применение изменений
-4. **terraform destroy** - удаление ресурсов
+1. **terraform init** - אתחול
+2. **terraform plan** - תכנון שינויים
+3. **terraform apply** - החלת שינויים
+4. **terraform destroy** - מחיקת משאבים
 
-### 2.5 Состояние (State)
+### 2.5 מצב (State)
 
-Terraform сохраняет состояние инфраструктуры в файле или удаленном хранилище:
-- Локальный файл (по умолчанию)
+Terraform שומר מצב תשתית בקובץ או אחסון מרוחק:
+- קובץ מקומי (ברירת מחדל)
 - S3 bucket
 - Terraform Cloud
 - Consul
 
-### 2.6 Модули
+### 2.6 מודולים
 
-Модули - это переиспользуемые компоненты:
+מודולים הם רכיבים לשימוש חוזר:
 ```hcl
 module "vpc" {
   source = "./modules/vpc"
@@ -101,21 +101,21 @@ module "vpc" {
 }
 ```
 
-### 2.7 Лучшие практики
+### 2.7 פרקטיקות מומלצות
 
-1. **Версионирование**: Используйте Git для версионирования кода
-2. **Модули**: Разбивайте код на модули
-3. **Переменные**: Используйте переменные для параметризации
-4. **Backend**: Используйте удаленное хранение состояния
-5. **Workspaces**: Используйте workspace'ы для разных окружений
+1. **גרסה**: השתמש ב-Git לגרסה של קוד
+2. **מודולים**: חלק קוד למודולים
+3. **משתנים**: השתמש במשתנים לפרמטריזציה
+4. **Backend**: השתמש באחסון מרוחק למצב
+5. **Workspaces**: השתמש ב-workspace'ים לסביבות שונות
 
-## Практическая часть
+## חלק מעשי
 
-### Установка Terraform
+### התקנת Terraform
 
 1. **Windows**:
 ```bash
-# Скачайте с официального сайта
+# הורד מהאתר הרשמי
 # https://www.terraform.io/downloads.html
 ```
 
@@ -132,31 +132,31 @@ brew tap hashicorp/tap
 brew install hashicorp/tap/terraform
 ```
 
-### Настройка AWS
+### הגדרת AWS
 
-1. Установите AWS CLI
-2. Настройте credentials:
+1. התקן AWS CLI
+2. הגדר credentials:
 ```bash
 aws configure
 ```
 
-3. Или используйте переменные окружения:
+3. או השתמש במשתני סביבה:
 ```bash
 export AWS_ACCESS_KEY_ID="your_access_key"
 export AWS_SECRET_ACCESS_KEY="your_secret_key"
 export AWS_REGION="us-west-2"
 ```
 
-## Домашнее задание
+## שיעורי בית
 
-1. Установите Terraform и AWS CLI
-2. Создайте простую VPC с подсетями
-3. Разверните EC2 инстанс в созданной VPC
-4. Настройте Security Groups
-5. Используйте модули для организации кода
+1. התקן Terraform ו-AWS CLI
+2. צור VPC פשוט עם תת-רשתות
+3. פרוס מופע EC2 ב-VPC שנוצר
+4. הגדר Security Groups
+5. השתמש במודולים לארגון קוד
 
-## Полезные ссылки
+## קישורים שימושיים
 
-- [Официальная документация Terraform](https://www.terraform.io/docs)
-- [AWS Provider Documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
-- [Terraform Best Practices](https://www.terraform.io/docs/cloud/guides/recommended-practices/index.html)
+- [תיעוד רשמי של Terraform](https://www.terraform.io/docs)
+- [תיעוד ספק AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+- [פרקטיקות מומלצות של Terraform](https://www.terraform.io/docs/cloud/guides/recommended-practices/index.html)

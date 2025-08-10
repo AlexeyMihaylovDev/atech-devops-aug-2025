@@ -1,49 +1,49 @@
-# Модуль 1: Jenkins CI/CD
+# מודול 1: Jenkins CI/CD
 
-## Цели обучения
+## מטרות למידה
 
-- Понимание концепций CI/CD
-- Установка и настройка Jenkins
-- Создание pipeline'ов
-- Интеграция с Git
-- Автоматизация сборки и развертывания
+- הבנת מושגי CI/CD
+- התקנה והגדרת Jenkins
+- יצירת pipeline'ים
+- אינטגרציה עם Git
+- אוטומציה של בנייה ופריסה
 
-## Теоретическая часть (1 час)
+## חלק תיאורטי (שעה)
 
-### 1.1 Что такое CI/CD?
+### 1.1 מה זה CI/CD?
 
-**Continuous Integration (CI)** - практика автоматической сборки и тестирования кода при каждом коммите.
+**Continuous Integration (CI)** - פרקטיקה של בנייה ובדיקה אוטומטית של קוד בכל commit.
 
-**Continuous Deployment (CD)** - автоматическое развертывание приложения в продакшн после успешных тестов.
+**Continuous Deployment (CD)** - פריסה אוטומטית של אפליקציה לפרודקשן לאחר בדיקות מוצלחות.
 
-### 1.2 Jenkins - обзор
+### 1.2 Jenkins - סקירה
 
-Jenkins - это open-source сервер автоматизации, который поддерживает:
-- Сборку проектов
-- Тестирование
-- Развертывание
-- Мониторинг
+Jenkins הוא שרת אוטומציה open-source שתומך ב:
+- בניית פרויקטים
+- בדיקה
+- פריסה
+- ניטור
 
-### 1.3 Основные концепции
+### 1.3 מושגים בסיסיים
 
 #### Pipeline
-Последовательность этапов, которые выполняются автоматически:
-1. **Build** - сборка приложения
-2. **Test** - запуск тестов
-3. **Deploy** - развертывание
+רצף שלבים שמתבצעים אוטומטית:
+1. **Build** - בניית האפליקציה
+2. **Test** - הרצת בדיקות
+3. **Deploy** - פריסה
 
 #### Job
-Задача, которая выполняется Jenkins'ом. Может быть:
+משימה שמתבצעת על ידי Jenkins. יכולה להיות:
 - Freestyle project
 - Pipeline project
 - Multi-configuration project
 
 #### Node
-Сервер или агент, на котором выполняются задачи.
+שרת או סוכן שעליו מתבצעות משימות.
 
 ### 1.4 Jenkinsfile
 
-Jenkinsfile - это файл, который описывает pipeline в коде:
+Jenkinsfile הוא קובץ שמתאר pipeline בקוד:
 
 ```groovy
 pipeline {
@@ -69,10 +69,10 @@ pipeline {
 }
 ```
 
-### 1.5 Типы pipeline'ов
+### 1.5 סוגי pipeline'ים
 
 #### Declarative Pipeline
-Современный синтаксис, более читаемый:
+תחביר מודרני, קריא יותר:
 
 ```groovy
 pipeline {
@@ -88,7 +88,7 @@ pipeline {
 ```
 
 #### Scripted Pipeline
-Классический синтаксис на Groovy:
+תחביר קלאסי ב-Groovy:
 
 ```groovy
 node {
@@ -98,27 +98,27 @@ node {
 }
 ```
 
-### 1.6 Интеграция с Git
+### 1.6 אינטגרציה עם Git
 
-Jenkins может:
-- Отслеживать изменения в репозитории
-- Запускать сборку при push
-- Работать с pull requests
-- Поддерживать webhook'и
+Jenkins יכול:
+- לעקוב אחר שינויים במאגר
+- להפעיל בנייה ב-push
+- לעבוד עם pull requests
+- לתמוך ב-webhook'ים
 
-### 1.7 Плагины
+### 1.7 תוספים
 
-Популярные плагины:
-- **Git** - интеграция с Git
-- **Docker** - работа с контейнерами
-- **Pipeline** - поддержка pipeline'ов
-- **Credentials** - управление секретами
+תוספים פופולריים:
+- **Git** - אינטגרציה עם Git
+- **Docker** - עבודה עם מיכלים
+- **Pipeline** - תמיכה ב-pipeline'ים
+- **Credentials** - ניהול סודות
 
-## Практическая часть
+## חלק מעשי
 
-### Установка Jenkins
+### התקנת Jenkins
 
-1. **Docker** (рекомендуется):
+1. **Docker** (מומלץ):
 ```bash
 docker run -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts
 ```
@@ -131,25 +131,25 @@ sudo apt-get update
 sudo apt-get install jenkins
 ```
 
-### Первоначальная настройка
+### הגדרה ראשונית
 
-1. Откройте `http://localhost:8080`
-2. Получите initial admin password:
+1. פתח `http://localhost:8080`
+2. קבל סיסמה ראשונית של מנהל:
 ```bash
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
-3. Установите рекомендуемые плагины
-4. Создайте admin пользователя
+3. התקן תוספים מומלצים
+4. צור משתמש מנהל
 
-## Домашнее задание
+## שיעורי בית
 
-1. Установите Jenkins локально
-2. Создайте простой pipeline для сборки Java приложения
-3. Настройте интеграцию с Git репозиторием
-4. Добавьте этап тестирования
+1. התקן Jenkins מקומית
+2. צור pipeline פשוט לבניית אפליקציית Java
+3. הגדר אינטגרציה עם מאגר Git
+4. הוסף שלב בדיקה
 
-## Полезные ссылки
+## קישורים שימושיים
 
-- [Официальная документация Jenkins](https://www.jenkins.io/doc/)
-- [Jenkins Pipeline Syntax](https://www.jenkins.io/doc/book/pipeline/syntax/)
-- [Jenkins Plugins](https://plugins.jenkins.io/)
+- [תיעוד רשמי של Jenkins](https://www.jenkins.io/doc/)
+- [תחביר Jenkins Pipeline](https://www.jenkins.io/doc/book/pipeline/syntax/)
+- [תוספי Jenkins](https://plugins.jenkins.io/)

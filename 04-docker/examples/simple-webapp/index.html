@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Docker Web App</title>
+    <title>אפליקציית ווב Docker</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -38,40 +38,40 @@
 </head>
 <body>
     <div class="container">
-        <h1>🚀 Docker Web Application</h1>
+        <h1>🚀 אפליקציית ווב Docker</h1>
         
         <div class="info">
-            <h2>Welcome to your Docker containerized web application!</h2>
-            <p>This is a simple web application running inside a Docker container using Nginx.</p>
+            <h2>ברוכים הבאים לאפליקציית הווב שלכם במיכל Docker!</h2>
+            <p>זוהי אפליקציית ווב פשוטה שרצה בתוך מיכל Docker באמצעות Nginx.</p>
         </div>
 
-        <h3>What you can do next:</h3>
+        <h3>מה שאתם יכולים לעשות בהמשך:</h3>
         <ul>
-            <li>Modify this HTML file and rebuild the container</li>
-            <li>Add more static files to the web server</li>
-            <li>Create a multi-stage Dockerfile for a more complex application</li>
-            <li>Use Docker Compose to orchestrate multiple services</li>
+            <li>עריכת קובץ ה-HTML הזה ובנייה מחדש של המיכל</li>
+            <li>הוספת קבצים סטטיים נוספים לשרת הווב</li>
+            <li>יצירת Dockerfile רב-שלבי עבור אפליקציה מורכבת יותר</li>
+            <li>שימוש ב-Docker Compose לאורכיסטרציה של שירותים מרובים</li>
         </ul>
 
         <div class="info">
-            <h3>Container Information:</h3>
-            <p><strong>Base Image:</strong> nginx:alpine</p>
-            <p><strong>Port:</strong> 80</p>
-            <p><strong>Status:</strong> Running</p>
+            <h3>מידע על המיכל:</h3>
+            <p><strong>תמונת בסיס:</strong> nginx:alpine</p>
+            <p><strong>פורט:</strong> 80</p>
+            <p><strong>סטטוס:</strong> פועל</p>
         </div>
 
-        <h3>Useful Docker Commands:</h3>
+        <h3>פקודות Docker שימושיות:</h3>
         <div class="code">
-            # Build the image<br>
+            # בניית התמונה<br>
             docker build -t my-webapp .<br><br>
             
-            # Run the container<br>
+            # הפעלת המיכל<br>
             docker run -d -p 8080:80 my-webapp<br><br>
             
-            # View running containers<br>
+            # צפייה במיכלים פועלים<br>
             docker ps<br><br>
             
-            # Stop the container<br>
+            # עצירת המיכל<br>
             docker stop &lt;container_id&gt;
         </div>
     </div>

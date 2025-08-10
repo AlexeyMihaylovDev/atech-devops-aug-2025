@@ -1,33 +1,33 @@
-# Multi-stage Dockerfile for Node.js application
+# Dockerfile רב-שלבי עבור אפליקציית Node.js
 
-# Build stage
+# שלב בנייה
 FROM node:16-alpine AS builder
 
 WORKDIR /app
 
-# Copy package files
+# העתקת קבצי package
 COPY package*.json ./
 
-# Install dependencies
+# התקנת תלויות
 RUN npm ci --only=production
 
-# Copy source code
+# העתקת קוד המקור
 COPY . .
 
-# Build the application
+# בניית האפליקציה
 RUN npm run build
 
-# Production stage
+# שלב ייצור
 FROM nginx:alpine
 
-# Copy built files from builder stage
+# העתקת קבצים שנבנו משלב הבנייה
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Copy nginx configuration
+# העתקת הגדרת nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Expose port 80
+# חשיפת פורט 80
 EXPOSE 80
 
-# Start nginx
+# הפעלת nginx
 CMD ["nginx", "-g", "daemon off;"]

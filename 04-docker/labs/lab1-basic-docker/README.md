@@ -1,12 +1,12 @@
-# Лабораторная работа 1: Базовый Docker
+# עבודת מעבדה 1: Docker בסיסי
 
-## Цель
-Создать простой Docker контейнер с веб-приложением.
+## מטרה
+יצירת מיכל Docker פשוט עם אפליקציית ווב.
 
-## Задачи
+## משימות
 
-### Задача 1: Подготовка окружения
-1. Установите Docker:
+### משימה 1: הכנת הסביבה
+1. התקנת Docker:
 ```bash
 # Ubuntu/Debian
 sudo apt update
@@ -25,20 +25,20 @@ sudo usermod -aG docker $USER
 brew install --cask docker
 ```
 
-2. Проверьте установку:
+2. בדיקת ההתקנה:
 ```bash
 docker --version
 docker run hello-world
 ```
 
-### Задача 2: Создание простого веб-приложения
-1. Создайте директорию для проекта:
+### משימה 2: יצירת אפליקציית ווב פשוטה
+1. יצירת תיקיית הפרויקט:
 ```bash
 mkdir docker-webapp
 cd docker-webapp
 ```
 
-2. Создайте файл `index.html`:
+2. יצירת קובץ `index.html`:
 ```html
 <!DOCTYPE html>
 <html>
@@ -60,9 +60,9 @@ cd docker-webapp
 </head>
 <body>
     <div class="container">
-        <h1>🚀 Welcome to Docker!</h1>
-        <p>This is a simple web application running in a Docker container.</p>
-        <p>Current time: <span id="time"></span></p>
+        <h1>🚀 ברוכים הבאים ל-Docker!</h1>
+        <p>זוהי אפליקציית ווב פשוטה שרצה במיכל Docker.</p>
+        <p>השעה הנוכחית: <span id="time"></span></p>
     </div>
     <script>
         document.getElementById('time').textContent = new Date().toLocaleString();
@@ -71,87 +71,87 @@ cd docker-webapp
 </html>
 ```
 
-### Задача 3: Создание Dockerfile
-Создайте файл `Dockerfile`:
+### משימה 3: יצירת Dockerfile
+יצירת קובץ `Dockerfile`:
 
 ```dockerfile
-# Use the official nginx image as base
+# שימוש בתמונת nginx הרשמית כבסיס
 FROM nginx:alpine
 
-# Copy the HTML file to nginx's default directory
+# העתקת קובץ ה-HTML לתיקיית ברירת המחדל של nginx
 COPY index.html /usr/share/nginx/html/
 
-# Expose port 80
+# חשיפת פורט 80
 EXPOSE 80
 
-# Start nginx
+# הפעלת nginx
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-### Задача 4: Сборка и запуск контейнера
-1. Соберите образ:
+### משימה 4: בנייה והפעלת המיכל
+1. בניית התמונה:
 ```bash
 docker build -t my-webapp .
 ```
 
-2. Проверьте, что образ создан:
+2. בדיקה שהתמונה נוצרה:
 ```bash
 docker images
 ```
 
-3. Запустите контейнер:
+3. הפעלת המיכל:
 ```bash
 docker run -d -p 8080:80 --name webapp my-webapp
 ```
 
-4. Проверьте, что контейнер запущен:
+4. בדיקה שהמיכל פועל:
 ```bash
 docker ps
 ```
 
-5. Откройте браузер и перейдите на `http://localhost:8080`
+5. פתיחת הדפדפן וניווט ל-`http://localhost:8080`
 
-### Задача 5: Работа с контейнером
-1. Просмотрите логи контейнера:
+### משימה 5: עבודה עם המיכל
+1. צפייה בלוגים של המיכל:
 ```bash
 docker logs webapp
 ```
 
-2. Войдите в контейнер:
+2. כניסה למיכל:
 ```bash
 docker exec -it webapp sh
 ```
 
-3. Остановите контейнер:
+3. עצירת המיכל:
 ```bash
 docker stop webapp
 ```
 
-4. Удалите контейнер:
+4. מחיקת המיכל:
 ```bash
 docker rm webapp
 ```
 
-5. Удалите образ:
+5. מחיקת התמונה:
 ```bash
 docker rmi my-webapp
 ```
 
-## Критерии оценки
+## קריטריוני הערכה
 
-- [ ] Docker установлен и настроен
-- [ ] Веб-приложение создано
-- [ ] Dockerfile создан
-- [ ] Образ успешно собран
-- [ ] Контейнер запущен и доступен
-- [ ] Веб-страница отображается корректно
-- [ ] Контейнер остановлен и удален
+- [ ] Docker מותקן ומוגדר
+- [ ] אפליקציית הווב נוצרה
+- [ ] Dockerfile נוצר
+- [ ] התמונה נבנתה בהצלחה
+- [ ] המיכל פועל ונגיש
+- [ ] דף הווב מוצג כראוי
+- [ ] המיכל נעצר ונמחק
 
-## Дополнительные задания
+## משימות נוספות
 
-1. Добавьте кастомную nginx конфигурацию
-2. Создайте volume для хранения данных
-3. Настройте переменные окружения
-4. Создайте .dockerignore файл
+1. הוספת הגדרת nginx מותאמת אישית
+2. יצירת volume לאחסון נתונים
+3. הגדרת משתני סביבה
+4. יצירת קובץ .dockerignore
 
-## Время выполнения: 30 минут
+## זמן ביצוע: 30 דקות

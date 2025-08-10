@@ -1,12 +1,12 @@
-# Лабораторная работа 1: Базовая инфраструктура AWS
+# עבודת מעבדה 1: תשתית בסיסית של AWS
 
-## Цель
-Создать базовую инфраструктуру AWS с помощью Terraform: VPC, подсети, EC2 инстанс.
+## מטרה
+ליצור תשתית בסיסית של AWS באמצעות Terraform: VPC, תת-רשתות, מופע EC2.
 
-## Задачи
+## משימות
 
-### Задача 1: Подготовка окружения
-1. Установите Terraform:
+### משימה 1: הכנת סביבה
+1. התקן Terraform:
 ```bash
 # Linux
 wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
@@ -18,13 +18,13 @@ brew tap hashicorp/tap
 brew install hashicorp/tap/terraform
 ```
 
-2. Установите AWS CLI и настройте credentials:
+2. התקן AWS CLI והגדר credentials:
 ```bash
 aws configure
 ```
 
-### Задача 2: Создание базовой конфигурации
-Создайте файл `main.tf` со следующей конфигурацией:
+### משימה 2: יצירת תצורה בסיסית
+צור קובץ `main.tf` עם התצורה הבאה:
 
 ```hcl
 # Configure the AWS Provider
@@ -156,61 +156,61 @@ output "public_ip" {
 }
 ```
 
-### Задача 3: Развертывание инфраструктуры
-1. Инициализируйте Terraform:
+### משימה 3: פריסת תשתית
+1. אתחל Terraform:
 ```bash
 terraform init
 ```
 
-2. Просмотрите план изменений:
+2. צפה בתכנון השינויים:
 ```bash
 terraform plan
 ```
 
-3. Примените изменения:
+3. החל שינויים:
 ```bash
 terraform apply
 ```
 
-4. Проверьте, что ресурсы созданы:
+4. בדוק שהמשאבים נוצרו:
 ```bash
 terraform show
 ```
 
-### Задача 4: Тестирование
-1. Получите public IP инстанса:
+### משימה 4: בדיקה
+1. קבל IP ציבורי של המופע:
 ```bash
 terraform output public_ip
 ```
 
-2. Проверьте доступность веб-сервера:
+2. בדוק נגישות שרת האינטרנט:
 ```bash
 curl http://<public_ip>
 ```
 
-### Задача 5: Очистка
-Удалите созданную инфраструктуру:
+### משימה 5: ניקוי
+מחק את התשתית שנוצרה:
 ```bash
 terraform destroy
 ```
 
-## Критерии оценки
+## קריטריונים להערכה
 
-- [ ] Terraform установлен и настроен
-- [ ] AWS credentials настроены
-- [ ] VPC создана с правильными настройками
-- [ ] Public subnet создана
-- [ ] Internet Gateway настроен
-- [ ] Security Group создана с правильными правилами
-- [ ] EC2 инстанс запущен
-- [ ] Веб-сервер доступен
-- [ ] Инфраструктура успешно удалена
+- [ ] Terraform הותקן והוגדר
+- [ ] AWS credentials הוגדרו
+- [ ] VPC נוצר עם הגדרות נכונות
+- [ ] Public subnet נוצר
+- [ ] Internet Gateway הוגדר
+- [ ] Security Group נוצר עם כללים נכונים
+- [ ] מופע EC2 הופעל
+- [ ] שרת האינטרנט נגיש
+- [ ] התשתית נמחקה בהצלחה
 
-## Дополнительные задания
+## משימות נוספות
 
-1. Добавьте private subnet
-2. Создайте NAT Gateway для private subnet
-3. Добавьте второй EC2 инстанс в private subnet
-4. Настройте Application Load Balancer
+1. הוסף private subnet
+2. צור NAT Gateway עבור private subnet
+3. הוסף מופע EC2 שני ב-private subnet
+4. הגדר Application Load Balancer
 
-## Время выполнения: 45 минут
+## זמן ביצוע: 45 דקות

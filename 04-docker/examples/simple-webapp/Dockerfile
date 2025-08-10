@@ -1,14 +1,14 @@
-# Use the official nginx image as base
+# שימוש בתמונת nginx הרשמית כבסיס
 FROM nginx:alpine
 
-# Copy custom nginx configuration
+# העתקת הגדרת nginx מותאמת אישית
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Copy static files
+# העתקת קבצים סטטיים
 COPY index.html /usr/share/nginx/html/
 
-# Expose port 80
+# חשיפת פורט 80
 EXPOSE 80
 
-# Start nginx
+# הפעלת nginx
 CMD ["nginx", "-g", "daemon off;"]
