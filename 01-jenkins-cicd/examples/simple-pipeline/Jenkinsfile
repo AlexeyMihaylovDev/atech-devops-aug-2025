@@ -1,0 +1,53 @@
+pipeline {
+    agent any
+    
+    environment {
+        APP_NAME = 'my-app'
+        VERSION = '1.0.0'
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out code...'
+                checkout scm
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                echo 'Building application...'
+                sh 'echo "Building ${APP_NAME} version ${VERSION}"'
+                sh 'sleep 5' // Имитация сборки
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                sh 'echo "Running unit tests..."'
+                sh 'sleep 3' // Имитация тестов
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                echo 'Deploying application...'
+                sh 'echo "Deploying ${APP_NAME} to staging environment"'
+                sh 'sleep 2' // Имитация деплоя
+            }
+        }
+    }
+    
+    post {
+        always {
+            echo 'Pipeline completed!'
+        }
+        success {
+            echo 'Pipeline succeeded!'
+        }
+        failure {
+            echo 'Pipeline failed!'
+        }
+    }
+}

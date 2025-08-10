@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Web App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .info {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .code {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Docker Web Application</h1>
+        
+        <div class="info">
+            <h2>Welcome to your Docker containerized web application!</h2>
+            <p>This is a simple web application running inside a Docker container using Nginx.</p>
+        </div>
+
+        <h3>What you can do next:</h3>
+        <ul>
+            <li>Modify this HTML file and rebuild the container</li>
+            <li>Add more static files to the web server</li>
+            <li>Create a multi-stage Dockerfile for a more complex application</li>
+            <li>Use Docker Compose to orchestrate multiple services</li>
+        </ul>
+
+        <div class="info">
+            <h3>Container Information:</h3>
+            <p><strong>Base Image:</strong> nginx:alpine</p>
+            <p><strong>Port:</strong> 80</p>
+            <p><strong>Status:</strong> Running</p>
+        </div>
+
+        <h3>Useful Docker Commands:</h3>
+        <div class="code">
+            # Build the image<br>
+            docker build -t my-webapp .<br><br>
+            
+            # Run the container<br>
+            docker run -d -p 8080:80 my-webapp<br><br>
+            
+            # View running containers<br>
+            docker ps<br><br>
+            
+            # Stop the container<br>
+            docker stop &lt;container_id&gt;
+        </div>
+    </div>
+</body>
+</html>
