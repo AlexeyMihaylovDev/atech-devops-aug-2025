@@ -6,6 +6,7 @@ project_name = "webapp-demo"
 environment  = "demo"
 
 # Instance Configuration
+ami_id        = "ami-0c02fb55956c7d316"  # Amazon Linux 2
 instance_type = "t3.micro"
 
 # Network Configuration
@@ -21,6 +22,7 @@ allowed_http_cidr = ["0.0.0.0/0"]
 # Storage Configuration
 root_volume_size = 30
 root_volume_type = "gp3"
+encrypt_volumes  = true
 
 # Deployment Configuration
 deploy_in_private = false  # Развертываем в публичной подсети для демо

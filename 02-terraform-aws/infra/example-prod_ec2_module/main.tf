@@ -5,7 +5,7 @@ provider "aws" {
 
 # Use the EC2 Complete Module for Production
 module "ec2_complete" {
-  source = "../"
+  source = "../modules/ec2-complete"
   
   project_name = var.project_name
   ami_id       = var.ami_id
