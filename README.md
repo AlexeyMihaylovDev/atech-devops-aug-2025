@@ -1,122 +1,135 @@
-# קורס הכשרה ב-DevOps
+# קורס DevOps - אוגוסט 2025
 
-## סקירת הקורס
+ברוכים הבאים לקורס DevOps המקיף שלנו! קורס זה מכסה את הטכנולוגיות והכלים החשובים ביותר בתחום ה-DevOps.
 
-קורס זה מיועד ללימוד הכלים הבסיסיים של DevOps. הקורס מחולק ל-4 מודולים, כל אחד מהם כולל חלק תיאורטי ועבודות מעבדה מעשיות.
+## 📚 תוכן הקורס
 
-### מבנה הקורס
+### 01-jenkins-cicd
+**Jenkins CI/CD Pipeline**
+- התקנה והגדרה של Jenkins
+- יצירת pipelines בסיסיים ומתקדמים
+- אינטגרציה עם Git ו-webhooks
+- דוגמאות מעשיות ל-pipelines
 
-- **מודול 1: Jenkins CI/CD** - אוטומציה של בנייה ופריסה
-- **מודול 2: Terraform AWS IaC** - תשתית כקוד ב-AWS
-- **מודול 3: Ansible IaC** - ניהול תצורה ואוטומציה
-- **מודול 4: Docker** - מיכלון אפליקציות
+### 02-terraform-aws
+**Infrastructure as Code עם Terraform ו-AWS**
+- מודולים Terraform מתקדמים
+- יצירת תשתית AWS מלאה
+- VPC, EC2, Security Groups
+- דוגמאות ל-production ו-development
 
-### מסגרת זמן
+### 03-ansible
+**Configuration Management עם Ansible**
+- כתיבת playbooks
+- ניהול תצורה אוטומטי
+- דוגמאות מעשיות
+- אינטגרציה עם שירותי ענן
 
-- **תיאוריה**: 4 שעות (שעה לכל מודול)
-- **מעשי**: 4 שעות (שעה לכל מודול)
-- **זמן כולל**: 8 שעות
+### 04-docker
+**Containerization עם Docker**
+- יצירת Docker images
+- Multi-stage builds
+- דוגמאות לאפליקציות web
+- best practices
 
-### דרישות
+## 🚀 התחלה מהירה
 
+### דרישות מקדימות
 - ידע בסיסי ב-Linux
-- הבנת מושגי DevOps
-- גישה לחשבון AWS (עבור מודול Terraform)
-- כלים מותקנים (ראה כל מודול)
+- הבנה בסיסית ב-command line
+- AWS account (עבור Terraform)
+- Docker Desktop (עבור Docker)
 
-### מבנה תיקיות
+### התקנה
+```bash
+# Clone הפרויקט
+git clone <repository-url>
+cd atech-devops-aug-2025
 
-```
-├── 01-jenkins-cicd/
-│   ├── README.md
-│   ├── examples/
-│   │   ├── simple-pipeline/
-│   │   │   └── Jenkinsfile
-│   │   └── java-maven-pipeline/
-│   │       └── Jenkinsfile
-│   └── labs/
-│       ├── lab1-basic-pipeline/
-│       │   └── README.md
-│       └── lab2-advanced-pipeline/
-│           └── README.md
-├── 02-terraform-aws/
-│   ├── README.md
-│   ├── examples/
-│   │   ├── simple-ec2/
-│   │   │   └── main.tf
-│   │   └── modular-vpc/
-│   │       └── variables.tf
-│   └── labs/
-│       └── lab1-basic-infrastructure/
-│           └── README.md
-├── 03-ansible/
-│   ├── README.md
-│   ├── examples/
-│   │   ├── simple-playbook/
-│   │   │   └── playbook.yml
-│   │   └── role-example/
-│   │       └── roles/webserver/tasks/main.yml
-│   └── labs/
-│       └── lab1-basic-playbook/
-│           └── README.md
-└── 04-docker/
-    ├── README.md
-    ├── examples/
-    │   ├── simple-webapp/
-    │   │   ├── Dockerfile
-    │   │   └── index.html
-    │   └── multi-stage/
-    │       └── Dockerfile
-    └── labs/
-        └── lab1-basic-docker/
-            └── README.md
+# עבור לכל מודול
+cd 01-jenkins-cicd
+# או
+cd 02-terraform-aws
+# או
+cd 03-ansible
+# או
+cd 04-docker
 ```
 
-### איך להשתמש
+## 📖 מבנה הפרויקט
 
-1. **התחל בלימוד החומר התיאורטי** ב-`README.md` של כל מודול
-2. **בצע דוגמאות מעשיות** בתיקיית `examples/`
-3. **השלם עבודות מעבדה** בתיקיית `labs/`
+```
+atech-devops-aug-2025/
+├── 01-jenkins-cicd/          # Jenkins CI/CD
+│   ├── examples/              # דוגמאות מעשיות
+│   ├── install/               # סקריפטי התקנה
+│   ├── labs/                  # תרגילים מעשיים
+│   └── pipelines/             # pipeline templates
+├── 02-terraform-aws/          # Infrastructure as Code
+│   ├── infra/                 # תשתית AWS
+│   │   ├── modules/           # מודולים לשימוש חוזר
+│   │   └── examples/          # דוגמאות שימוש
+│   └── labs/                  # תרגילים מעשיים
+├── 03-ansible/                # Configuration Management
+│   ├── examples/               # דוגמאות playbooks
+│   ├── playbooks/             # playbooks מוכנים
+│   └── labs/                  # תרגילים מעשיים
+└── 04-docker/                 # Containerization
+    ├── examples/               # דוגמאות Docker
+    └── labs/                   # תרגילים מעשיים
+```
 
-### תוכנית לימודים
+## 🎯 מטרות הלמידה
 
-#### יום 1: Jenkins CI/CD (2 שעות)
-- **תיאוריה (שעה)**: מושגי CI/CD, ארכיטקטורת Jenkins, Pipeline'ים
-- **מעשי (שעה)**: התקנת Jenkins, יצירת pipeline'ים, אינטגרציה עם Git
+לאחר השלמת הקורס, תוכלו:
+- להקים ולנהל Jenkins CI/CD pipelines
+- ליצור תשתית AWS עם Terraform
+- לנהל תצורת שרתים עם Ansible
+- ליצור ולהריץ containers עם Docker
+- לבנות pipeline שלם מ-development עד production
 
-#### יום 2: Terraform AWS IaC (2 שעות)
-- **תיאוריה (שעה)**: תשתית כקוד, יסודות Terraform, ספק AWS
-- **מעשי (שעה)**: יצירת VPC, מופעי EC2, מודולים
-
-#### יום 3: Ansible IaC (2 שעות)
-- **תיאוריה (שעה)**: ניהול תצורה, ארכיטקטורת Ansible, Playbook'ים
-- **מעשי (שעה)**: יצירת playbook'ים, תפקידים, inventory
-
-#### יום 4: Docker (2 שעות)
-- **תיאוריה (שעה)**: מיכלון, ארכיטקטורת Docker, Dockerfile
-- **מעשי (שעה)**: יצירת תמונות, מיכלים, Docker Compose
-
-### הערכה
+## 📝 תרגילים מעשיים
 
 כל מודול כולל:
-- **מבחן תיאורטי** - בדיקת הבנת מושגים
-- **משימה מעשית** - ביצוע עבודות מעבדה
-- **שיעורי בית** - עבודה עצמאית
+- **דוגמאות מעשיות** - קוד מוכן לשימוש
+- **תרגילים מעשיים** - משימות לפתרון עצמאי
+- **הסברים מפורטים** - תיעוד מלא בעברית
+- **best practices** - המלצות לשימוש מקצועי
 
-### משאבים נוספים
+## 🔧 כלים וטכנולוגיות
+
+- **Jenkins** - CI/CD automation
+- **Terraform** - Infrastructure as Code
+- **Ansible** - Configuration Management
+- **Docker** - Containerization
+- **AWS** - Cloud Infrastructure
+- **Git** - Version Control
+
+## 📞 תמיכה
+
+במהלך הקורס תוכלו לקבל עזרה דרך:
+- תיעוד מפורט בעברית
+- דוגמאות מעשיות
+- תרגילים עם פתרונות
+- קהילת למידה
+
+## 🎓 השלמת הקורס
+
+לאחר השלמת כל המודולים:
+1. השלימו את התרגילים המעשיים
+2. צרו פרויקט סיכום משלכם
+3. השתמשו בידע ליצירת תשתית DevOps אמיתית
+
+## 📚 משאבים נוספים
 
 - [Jenkins Documentation](https://www.jenkins.io/doc/)
 - [Terraform Documentation](https://www.terraform.io/docs)
 - [Ansible Documentation](https://docs.ansible.com/)
 - [Docker Documentation](https://docs.docker.com/)
-
-### תמיכה
-
-לשאלות ותמיכה:
-- צור issue במאגר
-- פנה לתיעוד של כל כלי
-- השתמש בפורומים הרשמיים של הקהילה
+- [AWS Documentation](https://docs.aws.amazon.com/)
 
 ---
 
-**בהצלחה בלימוד DevOps! 🚀**
+**בהצלחה בלימוד! 🚀**
+
+אם יש לכם שאלות או הצעות לשיפור, אל תהססו לפנות אלינו.
