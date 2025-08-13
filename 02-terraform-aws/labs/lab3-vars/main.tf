@@ -1,10 +1,34 @@
+
+
+# יצירת Key Pair אוטומטי
+resource "aws_key_pair" "demo_key" {
+  key_name   = "demo-keypair-${random_id.suffix.hex}"
+  public_key = tls_private_key.demo_private_key.public_key_openssh
+
+  tags = {
+    Name = "demo-keypair"
+  }
+}
+
+# יצירת Private Key
+resource "tls_private_key" "demo_private_key" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+# יצירת Random ID לסיומת ייחודית
+resource "random_id" "suffix" {
+  byte_length = 4
+}
+
 # יצירת EC2 Instance
 resource "aws_instance" "demo_ec2" {
   ami                         = data.aws_ami.amazon_linux.id
   instance_type               = var.instance_type
-  key_name                    = var.key_name
+  key_name                    = aws_key_pair.demo_key.key_name
   subnet_id                   = aws_subnet.demo_subnet.id
   vpc_security_group_ids      = [aws_security_group.demo_sg.id]
+  associate_public_ip_address = true
 
   user_data = <<-EOF
               #!/bin/bash

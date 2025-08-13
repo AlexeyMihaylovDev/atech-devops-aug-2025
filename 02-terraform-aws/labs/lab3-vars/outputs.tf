@@ -35,6 +35,16 @@ output "ami_id" {
   value       = data.aws_ami.amazon_linux.id
 }
 
+output "ami_name" {
+  description = "שם ה-AMI שנבחר"
+  value       = data.aws_ami.amazon_linux.name
+}
+
+output "ami_owner" {
+  description = "בעלים של ה-AMI"
+  value       = data.aws_ami.amazon_linux.owners
+}
+
 output "availability_zone" {
   description = "Availability Zone שנבחרה אוטומטית"
   value       = data.aws_availability_zones.available.names[0]
@@ -42,7 +52,18 @@ output "availability_zone" {
 
 output "ssh_command" {
   description = "פקודה לחיבור SSH לשרת"
-  value       = "ssh -i ~/.ssh/${var.key_name}.pem ec2-user@${aws_instance.demo_ec2.public_ip}"
+  value       = "ssh -i demo-keypair.pem ec2-user@${aws_instance.demo_ec2.public_ip}"
+}
+
+output "private_key" {
+  description = "Private Key לחיבור SSH (שמור בקובץ .pem)"
+  value       = tls_private_key.demo_private_key.private_key_pem
+  sensitive   = true
+}
+
+output "key_pair_name" {
+  description = "שם ה-Key Pair שנוצר אוטומטית"
+  value       = aws_key_pair.demo_key.key_name
 }
 
 output "web_url" {

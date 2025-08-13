@@ -1,5 +1,5 @@
 # ערכי משתנים עבור הדמו
 
-aws_region    = "eu-north-1"
-instance_type = "t2.micro"
-key_name      = "my-keypair"
+aws_region    = "us-east-1"
+instance_type = "t3.micro"
+key_name      = ""
