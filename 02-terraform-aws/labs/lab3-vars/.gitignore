@@ -1,0 +1,82 @@
+# Terraform files
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+*.tfstate.lock.info
+*.tfstate.lock
+.terraform/
+.terraform.lock.hcl
+
+# Private keys and sensitive files
+*.pem
+*.key
+*.pem.pub
+demo-keypair.pem
+demo-keypair.pem.pub
+
+# Terraform variables with sensitive data
+*.auto.tfvars
+*.auto.tfvars.json
+secrets.tfvars
+secrets.tfvars.json
+
+# Terraform crash log files
+crash.log
+crash.*.log
+
+# Terraform override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform CLI configuration files
+.terraformrc
+terraform.rc
+
+# Terraform plan files
+*.tfplan
+*.tfplan.json
+
+# Terraform output files
+terraform.tfstate.backup
+terraform.tfstate.backup.*
+
+# Logs
+*.log
+logs/
+terraform.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# PowerShell scripts (optional - remove if you want to track them)
+# *.ps1
+
+# Windows specific
+desktop.ini
+$RECYCLE.BIN/
