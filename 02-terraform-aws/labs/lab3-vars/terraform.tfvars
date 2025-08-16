@@ -1,5 +1,5 @@
 # ערכי משתנים עבור הדמו
 
-aws_region    = "us-east-1"
-instance_type = "t3.micro"
+aws_region    = "eu-central-1"
+instance_type = "t2.large"
 key_name      = ""
