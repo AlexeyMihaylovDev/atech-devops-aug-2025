@@ -35,7 +35,7 @@ resource "aws_instance" "ubuntu_public_linux_1" {
     ami           = "ami-05d4121edd74a9f06" # מזהה של מערכת הפעלה (Ubuntu)
     instance_type = "t2.micro"              # סוג המכונה (קטנה וזולה)
     subnet_id     = aws_subnet.subnet1.id   # שייכת ל-Subnet שהגדרנו
-    key_name = "polybot_master"             # מפתח SSH לגישה לשרת
+    key_name = "demo1"             # מפתח SSH לגישה לשרת
     associate_public_ip_address = true      # הקצאת כתובת ציבורית לשרת
     vpc_security_group_ids = [aws_security_group.secure-group_demo.id] # שיוך ל-SG
 

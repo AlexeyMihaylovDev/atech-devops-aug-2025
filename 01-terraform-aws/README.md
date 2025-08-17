@@ -28,15 +28,17 @@
 ## 🚀 התחלה מהירה
 
 ### דרישות מקדימות
-- AWS CLI מותקן ומוגדר
-- Terraform 1.0+ מותקן
-- AWS Account עם הרשאות מתאימות
+- AWS CLI מותקן ומוגדר https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html 
+- Terraform 1.12.2+ מותקן   https://developer.hashicorp.com/terraform/install
+- AWS Account עם הרשאות מתאימות 
+- AWS Access Key ID 
+- AWS Secret Access Key
 - ידע בסיסי ב-AWS Services
 
 ### התקנה מהירה
 ```bash
 # עבור לתיקיית הפרויקט
-cd 02-terraform-aws
+cd 01-terraform-aws
 
 # עבור לדוגמה בסיסית
 cd infra/example_use_ec2_module
