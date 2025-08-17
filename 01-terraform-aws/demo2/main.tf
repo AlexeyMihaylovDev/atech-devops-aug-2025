@@ -6,20 +6,20 @@ terraform {
     }
   }
 }
-
 # הגדרה של פרוביידר AWS – כאן מגדירים באיזה region נשתמש
 provider "aws" {
-    region = "ca-central-1"   # region בקנדה
+    region = "eu-north-1"   # region בקנדה
 }
 
 # יצירת VPC חדש עם CIDR Block של /16 – כלומר רשת פרטית עם טווח גדול של כתובות
 resource "aws_vpc" "vpc_demo" {
     cidr_block = "10.0.0.0/16"    # טווח כתובות פרטי
     tags = {
-      "Name" = "demo1-vpc"        # תגית (שם) לזיהוי ה-VPC
+      "Name" = "demo1-vpc"
+      "Framework" = "terraform"        # תגית (שם) לזיהוי ה-VPC
     }
 }
-
+                                                                                                                                                            
 # יצירת Subnet בתוך ה-VPC שהגדרנו
 resource "aws_subnet" "subnet1" {
     vpc_id     = aws_vpc.vpc_demo.id   # שייך ל-VPC שיצרנו
@@ -31,11 +31,11 @@ resource "aws_subnet" "subnet1" {
 }
 
 # יצירת מכונה וירטואלית (EC2 instance) בתוך ה-Subnet
-resource "aws_instance" "ubuntu_public_linux_1" {
-    ami           = "ami-05d4121edd74a9f06" # מזהה של מערכת הפעלה (Ubuntu)
-    instance_type = "t2.micro"              # סוג המכונה (קטנה וזולה)
+resource "aws_instance" "public_linux" {
+    ami           = "ami-0abf2a9d461524a30" # מזהה של מערכת הפעלה (Ubuntu)
+    instance_type = "t3.micro"              # סוג המכונה (קטנה וזולה)
     subnet_id     = aws_subnet.subnet1.id   # שייכת ל-Subnet שהגדרנו
-    key_name = "demo1"             # מפתח SSH לגישה לשרת
+    key_name = "alexey-demo"             # מפתח SSH לגישה לשרת
     associate_public_ip_address = true      # הקצאת כתובת ציבורית לשרת
     vpc_security_group_ids = [aws_security_group.secure-group_demo.id] # שיוך ל-SG
 
@@ -81,3 +81,27 @@ resource "aws_security_group" "secure-group_demo" {
       Name = "demo1"                # תגית לזיהוי קבוצת האבטחה
   }
 }
+
+resource "aws_internet_gateway" "igw_demo" {
+  vpc_id = aws_vpc.vpc_demo.id
+  tags = {
+    Name = "demo1"
+  }
+}
+
+resource "aws_route_table" "rt_demo" {
+  vpc_id = aws_vpc.vpc_demo.id
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.igw_demo.id
+  }
+  tags = {
+    Name = "demo1"
+  }
+}
+
+resource "aws_route_table_association" "rta_demo" {
+  subnet_id = aws_subnet.subnet1.id
+  route_table_id = aws_route_table.rt_demo.id
+}
+
