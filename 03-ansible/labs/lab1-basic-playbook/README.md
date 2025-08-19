@@ -1,12 +1,12 @@
-# Лабораторная работа 1: Базовый Ansible playbook
+# Lab 1: Basic Ansible Playbook
 
-## Цель
-Создать простой Ansible playbook для настройки веб-сервера.
+## Objective
+Create a simple Ansible playbook for configuring a web server.
 
-## Задачи
+## Tasks
 
-### Задача 1: Подготовка окружения
-1. Установите Ansible:
+### Task 1: Environment Setup
+1. Install Ansible:
 ```bash
 # Ubuntu/Debian
 sudo apt update
@@ -22,13 +22,13 @@ sudo yum install ansible
 brew install ansible
 ```
 
-2. Проверьте установку:
+2. Verify installation:
 ```bash
 ansible --version
 ```
 
-### Задача 2: Создание inventory
-Создайте файл `inventory/hosts`:
+### Task 2: Creating Inventory
+Create file `inventory/hosts`:
 
 ```ini
 [webservers]
@@ -44,8 +44,8 @@ ansible_ssh_private_key_file=~/.ssh/id_rsa
 ansible_python_interpreter=/usr/bin/python3
 ```
 
-### Задача 3: Создание простого playbook
-Создайте файл `playbook.yml`:
+### Task 3: Creating Simple Playbook
+Create file `playbook.yml`:
 
 ```yaml
 ---
@@ -102,48 +102,48 @@ ansible_python_interpreter=/usr/bin/python3
         state: restarted
 ```
 
-### Задача 4: Тестирование подключения
-1. Проверьте подключение к хостам:
+### Task 4: Testing Connection
+1. Test connection to hosts:
 ```bash
 ansible webservers -m ping
 ```
 
-2. Проверьте синтаксис playbook:
+2. Check playbook syntax:
 ```bash
 ansible-playbook --syntax-check playbook.yml
 ```
 
-### Задача 5: Запуск playbook
-1. Запустите playbook в режиме dry-run:
+### Task 5: Running Playbook
+1. Run playbook in dry-run mode:
 ```bash
 ansible-playbook --check playbook.yml
 ```
 
-2. Запустите playbook:
+2. Run playbook:
 ```bash
 ansible-playbook playbook.yml
 ```
 
-3. Проверьте результат:
+3. Verify result:
 ```bash
 ansible webservers -m shell -a "curl -s http://localhost"
 ```
 
-## Критерии оценки
+## Evaluation Criteria
 
-- [ ] Ansible установлен и настроен
-- [ ] Inventory файл создан
-- [ ] Playbook создан и синтаксически корректен
-- [ ] Подключение к хостам работает
-- [ ] Apache установлен и запущен
-- [ ] Веб-страница доступна
-- [ ] Playbook выполняется без ошибок
+- [ ] Ansible installed and configured
+- [ ] Inventory file created
+- [ ] Playbook created and syntactically correct
+- [ ] Connection to hosts working
+- [ ] Apache installed and running
+- [ ] Web page accessible
+- [ ] Playbook executes without errors
 
-## Дополнительные задания
+## Additional Tasks
 
-1. Добавьте установку PHP
-2. Настройте виртуальные хосты
-3. Добавьте SSL сертификат
-4. Создайте роль для веб-сервера
+1. Add PHP installation
+2. Configure virtual hosts
+3. Add SSL certificate
+4. Create a role for web server
 
-## Время выполнения: 30 минут
+## Time to Complete: 30 minutes
